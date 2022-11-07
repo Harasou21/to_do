@@ -1,0 +1,41 @@
+version: '3'
+services:
+  react:
+    build:
+      context: .
+      dockerfile: react-ts-to_do/Dockerfile
+    container_name: react_container
+    tty: true
+    volumes:
+      - ./react-ts-to_do:/app/react-ts-to_do
+    command: sh -c "cd /app/react-ts-to_do && yarn install && yarn start"
+    ports:
+      - 3000:3000
+  go:
+    build:
+      context: .
+      dockerfile: go-to_do/Dockerfile
+    container_name: go_container
+    ports:
+      - 8000:8000
+    tty: true
+    volumes:
+      - ./go-app:/app/go
+
+  db:
+    image: mysql:8.0.21
+    cap_add:
+      - SYS_NICE
+      # コンテナにLinux機能を追加するオプションのようです。SYS_NICEは、プロセスの優先度(nice値)をあげます。
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_HOST: db
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql-data:
+    driver: local
