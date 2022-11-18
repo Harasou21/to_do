@@ -5,6 +5,9 @@ import './index.css';
 import Hello from './components/Hello'
 import Message from './components/Message';
 import Name from './components/Name'
+import ContainerSample from './components/ContainerSample'
+import Page from './components/ContextSample'
+import Counter from './components/Counter';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -15,8 +18,12 @@ root.render(
     <Hello />
     <Message />
     <Name />
+    <ContainerSample />
+    <Page />
+    <Counter initialValue={1} />
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
