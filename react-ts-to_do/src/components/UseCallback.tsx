@@ -14,6 +14,8 @@ const DecrementButton = (props: ButtonProp) => {
 }
 
 // IncrementButtonはメモ化した関数コンポーネントでボタンを表示する
+// 関数コンポーネントを用いているが親コンポーネントでonClickが再描画されているので
+// 子コンポーネントであるIncrementButtonも再描画されている
 const IncrementButton = React.memo((props: ButtonProp) => {
   const { onClick } = props
 
