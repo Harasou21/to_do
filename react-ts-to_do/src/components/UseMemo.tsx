@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react'
 // import { UseMemoSample } fromで利用
 export const UseMemoSample = () => {
   // textは現在のテキストボックスの中身の値を保持する
-  const [text, setText] = useState('')
+  const [text, setText] = useState('あ')
   // itemsは文字列のリストを保持する
   const [items, setItems] = useState<string[]>([])
 
@@ -19,9 +19,10 @@ export const UseMemoSample = () => {
       // 現在の入力値をitemsに追加する、この時新しい配列を作成して保存する
       // ...とは何者
       // ...配列 で配列の要素をすべて展開する？
+      // 現在入力されたものと、今まで入力されたテキストの配列を返す
       return [...prevItems, text]
     })
-    setText('')
+    //setText('')
   }
 
   // numberOfCharacters1は再描画の度にitem.reduceを実行して結果を得る
