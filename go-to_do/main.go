@@ -2,14 +2,10 @@ package main
 
 import (
 	"fmt"
-	"net/http"
+	"go-to_do/mylib"
 )
 
-func main() {
-	http.HandleFunc("/", echoHello)
-	http.ListenAndServe(":8000", nil)
-}
-
-func echoHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello World</h1>")
+func main(){
+	s := []int{1,2,3,4,5}
+	fmt.Println(mylib.Average(s))
 }
