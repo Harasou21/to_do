@@ -7,7 +7,7 @@ services:
     container_name: react_container
     tty: true
     volumes:
-      - ./react-ts-to_do:/app/react-ts-to_do
+      - ../../react-ts-to_do:/app/react-ts-to_do
     command: sh -c "cd /app/react-ts-to_do && yarn install && yarn start"
     ports:
       - 3000:3000
@@ -20,7 +20,7 @@ services:
       - 8000:8000
     tty: true
     volumes:
-      - ./go-app:/app/go
+      - ../../go-to_do:/app/go-to_do
 
   db:
     image: mysql:8.0.21
