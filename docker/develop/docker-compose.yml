@@ -20,7 +20,7 @@ services:
       - 8000:8000
     tty: true
     volumes:
-      - ../../go-app:/app/go
+      - ../../go-to_do:/app/go-to_do
 
   db:
     image: mysql:8.0.21
